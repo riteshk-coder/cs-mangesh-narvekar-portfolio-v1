@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&family=Cinzel:wght@400;500;600;700;800&family=Marcellus&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-secondary: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-cinzel: 'Cinzel', serif;
+  --font-marcellus: 'Marcellus', serif;
+  
+  --color-navy-dark: #071628;
+  --color-navy: #0F2747;
+  --color-royal: #183B6B;
+  --color-gold: #C8A45D;
+  --color-platinum: #F8FAFC;
+}
+
+/* Custom styles for animations of floating cards, particle backgrounds, and custom UI */
+@layer utilities {
+  .clip-path-slant {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: var(--color-navy-dark);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Webkit scrollbar stylings */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-navy-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-royal);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Keyframes for subtle professional background drift */
+@keyframes slowDrift {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-slow-drift {
+  animation: slowDrift 16s ease-in-out infinite;
+}
+
+/* Glassmorphism background blur variables */
+.glass-panel {
+  background: rgba(15, 39, 71, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-gold {
+  background: rgba(15, 39, 71, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 164, 93, 0.15);
+}
